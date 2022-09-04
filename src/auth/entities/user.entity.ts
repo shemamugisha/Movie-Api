@@ -4,7 +4,7 @@ import { Movie } from 'src/movie/entities/movie.entity';
 import { Column, Entity, OneToMany } from 'typeorm';
 import BaseEntity from '../../__shared__/models/base.entity';
 
-@Entity()
+@Entity('users')
 export class User extends BaseEntity {
   @Column({ unique: true, nullable: false })
   @ApiProperty()
