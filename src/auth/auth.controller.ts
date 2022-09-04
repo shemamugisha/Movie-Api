@@ -38,7 +38,7 @@ export class AuthController {
   @Operation('Register user')
   @CreatedResponse()
   @ErrorResponses(ConflictResponse, BadRequestResponse)
-  async registerCompany(
+  async register(
     @Body() registerDto: RegisterDto,
   ): Promise<GenericResponse<any>> {
     await this.authService.register(registerDto);
@@ -111,7 +111,7 @@ export class AuthController {
     return new GenericResponse('Logged out successfully');
   }
 
-  private setCookies(response: Response, ...cookies: [string, string][]) {
+  public setCookies(response: Response, ...cookies: [string, string][]) {
     cookies.forEach(([name, val]) => {
       response.cookie(name, val, {
         httpOnly: true,

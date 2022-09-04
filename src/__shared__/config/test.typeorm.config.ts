@@ -14,7 +14,7 @@ const testingTypeOrmConfig: TypeOrmModuleOptions = {
   ],
   dropSchema: true,
   synchronize: true,
-  logging: false,
+  logging: true,
   autoLoadEntities: true,
 };
 

@@ -1,8 +1,6 @@
 import { HttpService } from '@nestjs/axios';
 import {
   BadRequestException,
-  ConflictException,
-  HttpException,
   Injectable,
   InternalServerErrorException,
   NotFoundException,
@@ -10,7 +8,6 @@ import {
 import { ConfigService } from '@nestjs/config';
 import { InjectRepository } from '@nestjs/typeorm';
 import { catchError, lastValueFrom, map } from 'rxjs';
-import { GetUser } from 'src/auth/decorators/get-user.decorator';
 import { User } from 'src/auth/entities/user.entity';
 import { Repository } from 'typeorm';
 import { CreateMovieDto } from './dto/create-movie.dto';

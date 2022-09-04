@@ -4,6 +4,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import AppConfig from '../interfaces/app-config.interface';
 import testingTypeOrmConfig from './test.typeorm.config';
 import typeOrmConfig from './typeorm.config';
+import 'dotenv/config';
 
 export const commonConfig = (): AppConfig => ({
   port: parseInt(process.env.PORT),
@@ -21,12 +22,20 @@ export const commonConfig = (): AppConfig => ({
   },
 });
 
-export const runtimeConfig = (): AppConfig => ({
-  allowedOrigins: process.env.ALLOWED_ORIGINS.split(','),
-  database:
-    process.env.NODE_ENV === 'test' ? testingTypeOrmConfig : typeOrmConfig,
-  ...commonConfig(),
-});
+export const runtimeConfig = (): AppConfig => {
+  console.log('##################');
+  console.log('##################');
+  console.log('##################');
+  console.log('##################');
+  console.log('##################');
+  console.log(process.env.NODE_ENV);
+  return {
+    allowedOrigins: process.env.ALLOWED_ORIGINS.split(','),
+    database:
+      process.env.NODE_ENV === 'test' ? testingTypeOrmConfig : typeOrmConfig,
+    ...commonConfig(),
+  };
+};
 
 export const testingConfig = (): AppConfig => ({
   ...commonConfig(),

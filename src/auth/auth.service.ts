@@ -2,11 +2,12 @@ import {
   BadRequestException,
   ForbiddenException,
   Injectable,
+  Logger,
 } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
+
 import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Connection, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { User } from './entities/user.entity';
 import { PasswordEncryption } from '../__shared__/utils/PasswordEncryption';
 import { LoginResponse } from './dto/login-resp.dto';
@@ -22,6 +23,7 @@ export class AuthService {
     private readonly userRepository: Repository<User>,
   ) {}
   async register(registerDto: RegisterDto): Promise<User> {
+    Logger.debug(registerDto);
     if (
       await this.userRepository.findOne({ where: { email: registerDto.email } })
     )
