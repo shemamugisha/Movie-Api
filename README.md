@@ -1,73 +1,62 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Movie Api
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Application which lets users set their top 100 movies form Movie Database
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+# API Endpoints included
 
-## Description
+### User
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- **POST /api/v1/auth/register:** Create an account
+- **POST /api/v1/auth/login:** Log into your account
+- **GET /api/v1/auth/refresh-token:** refresh token
+- **GET /api/v1/auth/logout:** Logout from your account
 
-## Installation
+### Movie
 
-```bash
-$ npm install
+- **POST /api/v1/movie:** Create a movie
+- **GET /api/v1/movies/my-list:** retrieving my ranked movie list
+- **GET /api/v1/movies/:movieID:** retrieving one movie from my list.
+- **GET /api/v1/movies/popular:** retrieving popular movies list from the external database of movies.
+- **PATCH /api/v1/movies:movieID:** Update a movie
+- **DELETE /api/v1/movies:movieID:** Delete a movie
+
+# [Documentation](https://movieapi-montech.herokuapp.com/docs/swagger-ui/)
+
+# Installation and Environment Setup
+
+**Clone the repository from [Github](https://github.com/shemamugisha/Movie-Api).**
+
+( You will need **Git** for this if you are running a Windows PC, Get it [HERE](https://git-scm.com/) )
+
+```
+git clone https://github.com/shemamugisha/Movie-Api
 ```
 
-## Running the app
+**To Install all dependencies:**
 
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+```
+yarn install
 ```
 
-## Test
+**To run the tests:**
 
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+```
+test:watch
 ```
 
-## Support
+**Now to start the app:**
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```
+yarn start:dev
+```
 
-## Stay in touch
+# Tools used
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Server-Side Framework: **NestJs**
+- Testing framework: **Jest**
+- containerization: **Docker**
+- Deployment: **[Heroku](https://www.heroku.com)**
 
-## License
+# Author:
 
-Nest is [MIT licensed](LICENSE).
+**Shema Mugisha Christian**
